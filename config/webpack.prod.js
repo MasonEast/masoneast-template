@@ -18,8 +18,8 @@ module.exports = WebpackMerge(webpackConfig, {
     devtool: 'cheap-module-source-map',
     plugins: [
         new CopyWebpackPlugin([{
-            from: path.resolve(__dirname, './public'),
-            to: path.resolve(__dirname, './dist')
+            from: path.resolve(__dirname, '../public'),
+            to: path.resolve(__dirname, '../dist')
         }]),
     ],
     optimization: {

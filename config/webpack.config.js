@@ -17,10 +17,10 @@ const getPath = (_path) => {
 
 module.exports = {
 
-    entry: getPath('./src/app.js'),                     //打包入口
+    entry: getPath('../src/app.js'),                     //打包入口
     output: {                                           //打包出口
         filename: '[name].[hash:8].js',                 // 打包后的文件名称      
-        path: getPath('./dist')                         // 打包后的目录
+        path: getPath('../dist')                         // 打包后的目录
     },
     module: {
         noParse: /jquery/,
@@ -113,7 +113,7 @@ module.exports = {
     },
     plugins: [                                          //插件
         new HtmlWebpackPlugin({
-            template: getPath('./public/index.html')
+            template: getPath('../public/index.html')
         }),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
@@ -135,7 +135,7 @@ module.exports = {
         // new Webpack.HotModuleReplacementPlugin(),
         new Webpack.DllReferencePlugin({                //通过dllplugin抽离很少变动的第三方包
             context: __dirname,
-            manifest: require('./vendor-manifest.json')
+            manifest: require('../vendor-manifest.json')
         }),
         new CopyWebpackPlugin([                         // 拷贝生成的文件到dist目录 这样每次不必手动去cv
             { from: 'static', to: 'static' }
@@ -143,7 +143,7 @@ module.exports = {
     ],
     resolve: {
         alias: {
-            ' @': getPath('./src')
+            ' @': getPath('../src')
         },
         extensions: ['*', '.js', '.jsx']
     },
