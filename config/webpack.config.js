@@ -135,7 +135,7 @@ module.exports = {
         // new Webpack.HotModuleReplacementPlugin(),
         new Webpack.DllReferencePlugin({                //通过dllplugin抽离很少变动的第三方包
             context: __dirname,
-            manifest: require('../vendor-manifest.json')
+            manifest: require('./vendor-manifest.json')
         }),
         new CopyWebpackPlugin([                         // 拷贝生成的文件到dist目录 这样每次不必手动去cv
             { from: 'static', to: 'static' }

@@ -2,6 +2,12 @@
 //如果我们没有更新第三方依赖包，就不必npm run dll
 const path = require("path");
 const webpack = require("webpack");
+const exists = require('fs').existsSync
+
+if(exists(path.resolve(__dirname, 'static','js', 'vendor.dll.js'))){    //如果之前有拆分过， 就不执行dll
+    process.exit()
+}
+
 module.exports = {
     // 开发项目中不经常会变更的静态依赖文件,以后只要我们不升级第三方包的时候，那么webpack就不会对这些库去打包，这样可以快速的提高打包的速度
     entry: {
