@@ -1,13 +1,4 @@
-// import React from 'react'
-// import ReactDom from 'react-dom'
-// import { Button } from 'antd'
-// const App = () => {
-//     console.log(11153)
-//     return <Button>133发3</Button>
-// }
-
-// ReactDom.render(<App />, document.querySelector('#root'))
-
+{{#if_eq dva true}}
 import dva from 'dva';
 import { createBrowserHistory as createHistory } from 'history';
 import React from 'react';
@@ -38,3 +29,17 @@ function RouteConfig () {
 
     );
 }
+
+{{/if_eq}}
+{{#if_eq dva false}}
+import React from 'react'
+import ReactDom from 'react-dom'
+import { Button } from 'antd'
+const App = () => {
+    console.log(11153)
+    return <Button>133发3</Button>
+}
+
+ReactDom.render(<App />, document.querySelector('#root'))
+
+{{/if_eq}}
