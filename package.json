@@ -1,12 +1,14 @@
 {
-    "name": "a",
-    "author": "c",
+    "name": "{{ name }}",
+    "author": "{{ author }}",
     "version": "1.0.0",
-    "description": "b",
+    "description": "{{ description }}",
     "main": "app.js",
     "scripts": {
         "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
-        "build2": "webpack --config config/webpack.config2.js",
+        {{#!entry}}
+        "buildmany": "webpack --config config/webpack.many.config.js",
+        {{/!entry}}
         "prestart": "webpack --config config/webpack.dll.config.js",
         "start": "cross-env NODE_ENV=development webpack-dev-server --config config/webpack.dev.js --open",
         "dll": "webpack --config config/webpack.dll.config.js"
@@ -56,7 +58,9 @@
     },
     "dependencies": {
         "antd": "^3.26.5",
+        {{#dva}}
         "dva": "^2.4.1",
+        {{/dva}}
         "react": "^16.12.0",
         "react-dom": "^16.12.0"
     }
