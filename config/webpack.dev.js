@@ -9,7 +9,10 @@ module.exports = WebpackMerge(webpackConfig, {
     devServer: {
         port: 5555,
         hot: true,
-        contentBase: '../dist'
+        inline: true,
+        stats: 'errors-only',       // 只显示bundle中的错误
+        clientLogLevel: "error",
+        // contentBase: '../dist'
     },
     plugins: [
         new Webpack.HotModuleReplacementPlugin()

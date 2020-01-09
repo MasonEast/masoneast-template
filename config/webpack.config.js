@@ -17,7 +17,7 @@ const getPath = (_path) => {
 
 module.exports = {
 
-    entry: getPath('../src/app.js'),                     //打包入口
+    entry: getPath('../src/app.jsx'),                     //打包入口
     output: {                                           //打包出口
         filename: '[name].[hash:8].js',                 // 打包后的文件名称      
         path: getPath('../dist')                         // 打包后的目录
@@ -142,8 +142,8 @@ module.exports = {
         ]),
     ],
     resolve: {
-        alias: {
-            ' @': getPath('../src')
+        alias: {                                        //设置别名
+            '@': getPath('../src')
         },
         extensions: ['*', '.js', '.jsx']
     },
