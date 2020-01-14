@@ -6,9 +6,9 @@
     "main": "app.js",
     "scripts": {
         "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
-        {{#!entry}}
+        {{#entry}}
         "buildmany": "webpack --config config/webpack.many.config.js",
-        {{/!entry}}
+        {{/entry}}
         "prestart": "webpack --config config/webpack.dll.config.js",
         "start": "cross-env NODE_ENV=development webpack-dev-server --config config/webpack.dev.js --open",
         "dll": "webpack --config config/webpack.dll.config.js"
